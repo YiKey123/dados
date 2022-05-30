@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<title></title>
+<style type="text/css">
+ h1{
+  background-color: #eb5534;
+  color: #cfc9c8;
+  text-align: center;
+ }
+ .res{
+  padding: 15px;
+  margin: 5px;
+  text-align: center;
+  color: #1f1918;
+  font-size: 24px;
+ }
+</style>
+</head>
+
+<body>
+ <header><h1>Juego de azar</h1></header>
+ <section class="res">
+ <br><br>
+ <h3>Cantidad de jugadores</h3>
+ <input type="number" id="nro1">
+ <button id="btn">Jugar</button>
+ <br><br><br>
+ <div id="resultado"></div>
+ <script>
+  //  registra un evento 
+  var e=document.getElementById('btn');
+  e.addEventListener('click',juego);  
+  function juego()
+  {
+    var lista=[];
+    var n=parseInt(document.getElementById('nro1').value);
+    for (i=0; i<n; i++){
+       dados=Math.floor(Math.random()*6)+1;
+       lista.push(dados);
+    }
+    var win=Math.max(...lista);
+    document.getElementById("resultado").innerHTML= "Resultado de los dados:<br>"+lista+"<br>"+win+" es el número ganador";  
+  }
+    </script>
+</section>
+</body>
+
+</html>
